@@ -4,3 +4,9 @@
 .price {
   font-size: 2rem;
 }
+.course {
+  text-align: center;
+}
+.course .price {
+  font-size: 2.5rem;
+}
