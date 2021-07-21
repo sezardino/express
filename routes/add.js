@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const Course = require("../models/course");
 
 const router = Router();
 
@@ -9,8 +10,9 @@ router.get("/", (_, response) => {
     });
 });
 
-router.post("/", (request, response) => {
-    console.log(request.body);
+router.post("/", async (request, response) => {
+    const course = new Course(request.body);
+    await course.save();
 
     response.redirect("/courses");
 });
