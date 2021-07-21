@@ -9,4 +9,10 @@ router.get("/", (_, response) => {
     });
 });
 
+router.post("/", (request, response) => {
+    console.log(request.body);
+
+    response.redirect("/courses");
+});
+
 module.exports = router;
