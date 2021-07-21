@@ -30,6 +30,15 @@
                         <a href="/add">Add Course</a>
                     </li>
                 {{/if}}
+                {{#if isCard}}
+                    <li class="active">
+                        <a href="/card">Card</a>
+                    </li>
+                {{else}}
+                    <li>
+                        <a href="/card">Card</a>
+                    </li>
+                {{/if}}
             </ul>
         </div>
     </nav>
