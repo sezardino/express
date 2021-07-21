@@ -2,17 +2,17 @@ const fs = require("fs");
 const path = require("path");
 
 class Course {
-    constructor({ name, price, img }) {
+    constructor({ name, price, image }) {
         this.name = name;
         this.price = price;
-        this.img = img;
+        this.image = image;
         this.id = Date.now();
     }
 
     toData() {
         return {
             name: this.name,
-            img: this.img,
+            image: this.image,
             id: this.id,
             price: this.price,
         };

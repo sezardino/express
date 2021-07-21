@@ -12,6 +12,8 @@ router.get("/", (_, response) => {
 
 router.post("/", async (request, response) => {
     const course = new Course(request.body);
+    console.log(request.body);
+    console.log(course);
     await course.save();
 
     response.redirect("/courses");
