@@ -54,8 +54,28 @@ class Course {
     }
 
     static async getById(id) {
+        const courses = await Course.getAll();
+        return courses.find((item) => item.id.toString() === id);
+    }
+
+    static async edit(data) {
         const courses = await Course.getAll()
-        return courses.find((item) => item.id.toString() === id)
+        const index = courses.findIndex((item) => item.id.toString() === data.id)
+        courses[index] = data;
+
+        return new Promise((resolve, reject) => {
+            fs.writeFile(
+                path.join(__dirname, "..", "data", "courses.json"),
+                JSON.stringify(courses),
+                (error) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        resolve();
+                    }
+                }
+            );
+        });
     }
 }
 
