@@ -13,9 +13,9 @@ const user = new Schema({
         items: [
             {
                 count: { type: Number, required: true, default: 1 },
-                courseId: {
+                bookId: {
                     type: Schema.Types.ObjectId,
-                    ref: "Course",
+                    ref: "book",
                     required: true,
                 },
             },

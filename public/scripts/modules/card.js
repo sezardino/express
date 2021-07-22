@@ -1,9 +1,9 @@
 import { toCurrency } from "../helpers/index.js";
 
-class Card {
+class cart {
     constructor() {
-        this.selector = ".js-card";
-        this.card = document.querySelector(this.selector);
+        this.selector = ".js-cart";
+        this.cart = document.querySelector(this.selector);
         this.init();
     }
 
@@ -24,13 +24,13 @@ class Card {
     }
 
     deleteItem(id) {
-        fetch(`/card/remove/${id}`, { method: "DELETE" })
+        fetch(`/cart/remove/${id}`, { method: "DELETE" })
             .then((response) => response.json())
             .then((data) => {
-                if (!data.courses.length) {
-                    this.card.innerHTML = "<p>Card is Empty</p>";
+                if (!data.books.length) {
+                    this.cart.innerHTML = "<p>cart is Empty</p>";
                 } else {
-                    const html = data.courses.map(this.updateTable).join("");
+                    const html = data.books.map(this.updateTable).join("");
                     this.body.innerHTML = html;
                     this.price.textContent = toCurrency(data.price);
                 }
@@ -38,7 +38,7 @@ class Card {
     }
 
     addListeners() {
-        this.card.addEventListener("click", (evt) => {
+        this.cart.addEventListener("click", (evt) => {
             const target = evt.target;
 
             if (target.classList.contains("js-delete")) {
@@ -49,12 +49,12 @@ class Card {
     }
 
     init() {
-        if (this.card) {
-            this.body = this.card.querySelector("tbody");
-            this.price = this.card.querySelector(".price");
+        if (this.cart) {
+            this.body = this.cart.querySelector("tbody");
+            this.price = this.cart.querySelector(".price");
             this.addListeners();
         }
     }
 }
 
-export default Card;
+export default cart;

@@ -6,9 +6,9 @@ const {
     allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
 const homeRoutes = require("./routes/home");
-const coursesRoutes = require("./routes/courses");
+const booksRoutes = require("./routes/books");
 const addRoutes = require("./routes/add");
-const cardRoutes = require("./routes/card");
+const cartRoutes = require("./routes/cart");
 const User = require("./models/user");
 
 const app = express();
@@ -37,9 +37,9 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", homeRoutes);
-app.use("/courses", coursesRoutes);
+app.use("/books", booksRoutes);
 app.use("/add", addRoutes);
-app.use("/card", cardRoutes);
+app.use("/cart", cartRoutes);
 
 const PORT = process.env.PORT || 3000;
 

@@ -1,7 +1,7 @@
-<h1>Card</h1>
+<h1>cart</h1>
 
-<div class="js-card">
-    {{#if courses.length}}
+<div class="js-cart">
+    {{#if books.length}}
         <table class="highlight centered">
             <thead>
                 <tr>
@@ -12,7 +12,7 @@
             </thead>
 
             <tbody>
-                {{#each courses}}
+                {{#each books}}
                     <tr>
                         <td>{{name}}</td>
                         <td>{{count}}</td>
@@ -30,6 +30,6 @@
         </table>
         <p>Total Price: <span class="price">{{price}}</span></p>
     {{else}}
-        <p>Card is Empty</p>
+        <p>cart is Empty</p>
     {{/if}}
 </div>

@@ -1,7 +1,7 @@
 <header class="header">
     <nav class="header__nav">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Courses Shop</a>
+            <a href="#" class="brand-logo">books Shop</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 {{#if isHome}}
                     <li class="active">
@@ -12,31 +12,31 @@
                         <a href="/">Home</a>
                     </li>
                 {{/if}}
-                {{#if isCourses}}
+                {{#if isbooks}}
                     <li class="active">
-                        <a href="/courses">Courses</a>
+                        <a href="/books">books</a>
                     </li>
                 {{else}}
                     <li>
-                        <a href="/courses">Courses</a>
+                        <a href="/books">books</a>
                     </li>
                 {{/if}}
                 {{#if isAdd}}
                     <li class="active">
-                        <a href="/add">Add Course</a>
+                        <a href="/add">Add book</a>
                     </li>
                 {{else}}
                     <li>
-                        <a href="/add">Add Course</a>
+                        <a href="/add">Add book</a>
                     </li>
                 {{/if}}
-                {{#if isCard}}
+                {{#if iscart}}
                     <li class="active">
-                        <a href="/card">Card</a>
+                        <a href="/cart">cart</a>
                     </li>
                 {{else}}
                     <li>
-                        <a href="/card">Card</a>
+                        <a href="/cart">cart</a>
                     </li>
                 {{/if}}
             </ul>

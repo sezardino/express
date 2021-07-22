@@ -1,22 +1,22 @@
 const { Router } = require("express");
-const Course = require("../models/course");
+const book = require("../models/book");
 
 const router = Router();
 
 router.get("/", (_, response) => {
     response.render("add", {
         isAdd: true,
-        title: "Add Course",
+        title: "Add book",
     });
 });
 
 router.post("/", async (request, response) => {
     const { image, name, price } = request.body;
-    const course = new Course({ name, image, price, user: request.user });
+    const book = new book({ name, image, price, user: request.user });
 
-    await course.save();
+    await book.save();
 
-    response.redirect("/courses");
+    response.redirect("/books");
 });
 
 module.exports = router;

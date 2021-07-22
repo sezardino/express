@@ -1,4 +1,4 @@
-<form action="/courses/edit" method="POST">
+<form action="/books/edit" method="POST">
     <div class="input-field">
         <input
             id="name"
@@ -6,7 +6,7 @@
             type="text"
             class="validate"
             required
-            value="{{course.name}}"
+            value="{{book.name}}"
         />
         <label for="name">Name</label>
         <span class="helper-text" data-error="Enter name"></span>
@@ -18,7 +18,7 @@
             type="number"
             class="validate"
             required
-            value="{{course.price}}"
+            value="{{book.price}}"
         />
         <label for="price">Price</label>
         <span class="helper-text" data-error="Enter price"></span>
@@ -30,15 +30,15 @@
             type="text"
             class="validate"
             required
-            value="{{course.image}}"
+            value="{{book.image}}"
         />
-        <label for="image">Course Image</label>
+        <label for="image">book Image</label>
         <span class="helper-text" data-error="Enter url of the image"></span>
     </div>
-    <input name="id" type="hidden" value="{{course.id}}" />
+    <input name="id" type="hidden" value="{{book.id}}" />
     <button class="btn btn-primary">Edit</button>
 </form>
-<form action="/courses/delete" method="POST">
-    <input type="hidden" name="id" value="{{course.id}}" />
+<form action="/books/delete" method="POST">
+    <input type="hidden" name="id" value="{{book.id}}" />
     <button class="btn red">Delete</button>
 </form>

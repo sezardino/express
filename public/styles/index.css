@@ -4,13 +4,13 @@
 .price {
   font-size: 2rem;
 }
-.course {
+.book {
   text-align: center;
 }
-.course .price {
+.book .price {
   font-size: 2.5rem;
 }
-.card-action.action {
+.cart-action.action {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
