@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const book = require("../models/book");
+const Book = require("../models/book");
 
 const router = Router();
 
@@ -15,7 +15,7 @@ router.get("/", async (request, response) => {
 
 router.post("/add", async (request, response) => {
     const id = request.body.id;
-    const book = await book.findById(id);
+    const book = await Book.findById(id);
     request.user.addToCart(book);
 
     response.redirect("/cart");

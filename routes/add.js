@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const book = require("../models/book");
+const Book = require("../models/book");
 
 const router = Router();
 
@@ -12,7 +12,7 @@ router.get("/", (_, response) => {
 
 router.post("/", async (request, response) => {
     const { image, name, price } = request.body;
-    const book = new book({ name, image, price, user: request.user });
+    const book = new Book({ name, image, price, user: request.user });
 
     await book.save();
 
