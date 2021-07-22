@@ -1,1 +1,35 @@
 <h1>Card</h1>
+
+{{#if courses.length}}
+    <div class="js-card">
+        <table class="highlight centered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Count</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each courses}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{count}}</td>
+                        <td>
+                            <button
+                                class="btn btn-small js-delete"
+                                data-id="{{id}}"
+                            >
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <p>Total Price: <span class="price">{{price}}</span></p>
+    </div>
+{{else}}
+    <p>Card is Empty</p>
+{{/if}}
