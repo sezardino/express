@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const expHbs = require("express-handlebars");
 const homeRoutes = require("./routes/home");
 const coursesRoutes = require("./routes/courses");
@@ -26,6 +27,21 @@ app.use("/card", cardRoutes);
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log("server started on port " + PORT);
-});
+const start = async () => {
+    try {
+        const url = `mongodb+srv://edward:VLvt4zhjvkTo3bkt@bookshop.o9wo3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+
+        await mongoose.connect(url, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+
+        app.listen(PORT, () => {
+            console.log("server started on port " + PORT);
+        });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+start();
