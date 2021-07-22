@@ -49,17 +49,13 @@ class Card {
         card.price -= course.price;
 
         return new Promise((resolve, reject) => {
-            fs.writeFile(
-                cardFilePath,
-                JSON.stringify(card),
-                (error, content) => {
-                    if (error) {
-                        reject(error);
-                    } else {
-                        resolve(content);
-                    }
+            fs.writeFile(cardFilePath, JSON.stringify(card), (error) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve(card);
                 }
-            );
+            });
         });
     }
 

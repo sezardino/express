@@ -1,7 +1,7 @@
 <h1>Card</h1>
 
-{{#if courses.length}}
-    <div class="js-card">
+<div class="js-card">
+    {{#if courses.length}}
         <table class="highlight centered">
             <thead>
                 <tr>
@@ -29,7 +29,7 @@
             </tbody>
         </table>
         <p>Total Price: <span class="price">{{price}}</span></p>
-    </div>
-{{else}}
-    <p>Card is Empty</p>
-{{/if}}
+    {{else}}
+        <p>Card is Empty</p>
+    {{/if}}
+</div>
