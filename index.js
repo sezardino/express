@@ -39,6 +39,7 @@ const start = async () => {
         await mongoose.connect(url, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
+            useFindAndModify: false,
         });
 
         app.listen(PORT, () => {

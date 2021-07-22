@@ -5,7 +5,6 @@ const router = Router();
 
 router.get("/", async (_, response) => {
     const courses = await Course.find();
-    console.log(courses);
 
     response.render("courses", {
         isCourses: true,
@@ -41,10 +40,24 @@ router.get("/:id/edit", async (request, response) => {
 });
 
 router.post("/edit", async (request, response) => {
-    const { id } = request.body;
-    await Course.findByIdAndUpdate(id, request.body);
+    try {
+        const { id } = request.body;
+        await Course.findByIdAndUpdate(id, request.body);
 
-    response.redirect("/courses");
+        response.redirect("/courses");
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+router.post("/delete", async (request, response) => {
+    try {
+        const { id } = request.body;
+        await Course.deleteOne({ _id: id });
+        response.redirect("/courses");
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 module.exports = router;
