@@ -1,6 +1,6 @@
 import { toCurrency } from "../helpers/index.js";
 
-class cart {
+class Cart {
     constructor() {
         this.selector = ".js-cart";
         this.cart = document.querySelector(this.selector);
@@ -14,7 +14,7 @@ class cart {
                   <td>
                       <button
                           class="btn btn-small js-delete"
-                          data-id="${item.id}"
+                          data-id="${item._id}"
                       >
                           Delete
                       </button>
@@ -28,8 +28,9 @@ class cart {
             .then((response) => response.json())
             .then((data) => {
                 if (!data.books.length) {
-                    this.cart.innerHTML = "<p>cart is Empty</p>";
+                    this.cart.innerHTML = "<p>Cart is Empty</p>";
                 } else {
+                    console.log(data);
                     const html = data.books.map(this.updateTable).join("");
                     this.body.innerHTML = html;
                     this.price.textContent = toCurrency(data.price);
@@ -57,4 +58,4 @@ class cart {
     }
 }
 
-export default cart;
+export default Cart;

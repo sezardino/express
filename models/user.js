@@ -25,10 +25,11 @@ const user = new Schema({
 
 user.methods.addToCart = function (book) {
     const items = [...this.cart.items];
-    const index = items.findIndex((item) => item._id === book._id);
+    const index = items.findIndex(
+        (item) => item.book.toString() === book.id.toString()
+    );
     const item = items[index];
     if (item) {
-        // count++
         item.count = item.count + 1;
     } else {
         const data = {
@@ -36,6 +37,23 @@ user.methods.addToCart = function (book) {
             count: 1,
         };
         items.push(data);
+    }
+
+    this.cart = { items };
+
+    return this.save();
+};
+
+user.methods.removeFromCart = function (id) {
+    let items = [...this.cart.items];
+    const index = items.findIndex(
+        (item) => item.book.id.toString() === id.toString()
+    );
+    const item = items[index];
+    if (item.count > 1) {
+        item.count = item.count - 1;
+    } else {
+        items = items.filter((item) => item.book.id.toString() !== id.toString());
     }
 
     this.cart = { items };
